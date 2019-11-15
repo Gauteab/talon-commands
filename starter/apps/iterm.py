@@ -17,6 +17,11 @@ keymap = {
     "make directory": "mkdir ",
     "split horizontal": Key("cmd-shift-d"),
     "split vertical": Key("cmd-d"),
+
+    "elm repel": "elm repl",
+    "elm install": "elm install ",
+    "elm make": "elm make",
+
 }
 
 keymap.update({f"split {direction}": Key(f"cmd-alt-{direction}") for direction in "left right up down".split()})

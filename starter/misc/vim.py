@@ -9,9 +9,26 @@ context.keymap(
         "insert over": [Key("escape"), "O"],
         "insert under": [Key("escape"), "o"],
 
+        "dedent": [Key("escape"), "<"],
+        "indent": [Key("escape"), ">"],
+
         "save it": [Key("escape"), ":w", Key("enter")],
         "quit it": [Key("escape"), ":q", Key("enter")],
+        "quit hard": [Key("escape"), ":q!", Key("enter")],
         "save and quit": [Key("escape"), ":wq", Key("enter")],
+
+
+        "forward": [Key("escape"), "f"],
+        "backward": [Key("escape"), "F"],
+        "toward": [Key("escape"), "t"],
+        "back toward": [Key("escape"), "T"],
+
+        "duplicate line": [Key("escape"), "yyp"],
+        "scroll bottom": [Key("escape"), "G"],
+        "scroll top": [Key("escape"), "gg"],
+        "middle screen": [Key("escape"), "M"],
+
+
         "undo": [Key("escape"), "u"],
         "redo": [Key("escape"), Key("ctrl-r")],
         "scan": [Key("escape"), "/"],

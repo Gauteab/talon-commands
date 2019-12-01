@@ -18,6 +18,13 @@ keymap = {
     "split horizontal": Key("cmd-shift-d"),
     "split vertical": Key("cmd-d"),
 
+    "open": "open ",
+    "take": "take ",
+    "npm": "npm ",
+    "grep": "rg ",
+    "user commands": ["cd ~/.talon/user/talon-commands", Key("enter")],
+    "dotfiles": ["cd ~/dotfiles", Key("enter")],
+
     "elm repel": "elm repl",
     "elm install": "elm install ",
     "elm make": "elm make",

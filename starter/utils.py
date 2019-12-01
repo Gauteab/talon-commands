@@ -14,7 +14,6 @@ mapping = json.load(resource.open("overrides.json"))
 # used for auto-spacing
 punctuation = set(".,-!?")
 
-
 def remove_dragon_junk(word):
     return str(word).lstrip("\\").split("\\", 1)[0]
 

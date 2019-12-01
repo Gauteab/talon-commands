@@ -1,51 +1,54 @@
 from talon.voice import Context, Key
+import time
 
 context = Context("vim")
-
+Normal = Key("left right escape")
 context.keymap(
     {
-        "insert end": [Key("escape"), "A"],
-        "insert start": [Key("escape"), "I"],
-        "insert over": [Key("escape"), "O"],
-        "insert under": [Key("escape"), "o"],
+        "insert end": [Normal, "A"],
+        "insert start": [Normal, "I"],
+        "insert over": [Normal, "O"],
+        "insert under": [Normal, "o"],
 
-        "dedent": [Key("escape"), "<"],
-        "indent": [Key("escape"), ">"],
+        "dedent": [Normal, "<"],
+        "indent": [Normal, ">"],
 
-        "save it": [Key("escape"), ":w", Key("enter")],
-        "quit it": [Key("escape"), ":q", Key("enter")],
-        "quit hard": [Key("escape"), ":q!", Key("enter")],
-        "save and quit": [Key("escape"), ":wq", Key("enter")],
+        "complete": Key("ctrl-n"),
 
-
-        "forward": [Key("escape"), "f"],
-        "backward": [Key("escape"), "F"],
-        "toward": [Key("escape"), "t"],
-        "back toward": [Key("escape"), "T"],
-
-        "duplicate line": [Key("escape"), "yyp"],
-        "scroll bottom": [Key("escape"), "G"],
-        "scroll top": [Key("escape"), "gg"],
-        "middle screen": [Key("escape"), "M"],
+        "save it": [Normal, ":w", Key("enter")],
+        "quit it": [Normal, ":q", Key("enter")],
+        "quit hard": [Normal, ":q!", Key("enter")],
+        "save and quit": [Normal, ":wq", Key("enter")],
 
 
-        "undo": [Key("escape"), "u"],
-        "redo": [Key("escape"), Key("ctrl-r")],
-        "scan": [Key("escape"), "/"],
-        "scan back": [Key("escape"), "?"],
+        "forward": [Normal, "f"],
+        "backward": [Normal, "F"],
+        "toward": [Normal, "t"],
+        "back toward": [Normal, "T"],
 
-        "change word": [Key("escape"), "ciw"],
-        "change line": [Key("escape"), "cc"],
-        "change forward": [Key("escape"), "C"],
-        "change string": [Key("escape"), "ci\""],
-        "change paragraph": [Key("escape"), "cip"],
+        "duplicate line": [Normal, "yyp"],
+        "scroll bottom": [Normal, "G"],
+        "scroll top": [Normal, "gg"],
+        "middle screen": [Normal, "M"],
 
-        "delete word": [Key("escape"), "diw"],
-        "delete line": [Key("escape"), "dd"],
-        "delete forward": [Key("escape"), "D"],
-        "delete paragraph": [Key("escape"), "dip"],
 
-        "visual mode": [Key("escape"), "v"],
-        "visual line": [Key("escape"), "V"],
+        "undo": [Normal, "u"],
+        "redo": [Normal, Key("ctrl-r")],
+        "scan": [Normal, "/"],
+        "scan back": [Normal, "?"],
+
+        "change word": [Normal, "ciw"],
+        "change line": [Normal, "cc"],
+        "change forward": [Normal, "C"],
+        "change string": [Normal, "ci\""],
+        "change paragraph": [Normal, "cip"],
+
+        "delete word": [Normal, "diw"],
+        "delete line": [Normal, "dd"],
+        "delete forward": [Normal, "D"],
+        "delete paragraph": [Normal, "dip"],
+
+        "visual mode": [Normal, "v"],
+        "visual line": [Normal, "V"],
     }
 )

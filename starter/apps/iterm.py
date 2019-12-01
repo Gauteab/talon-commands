@@ -19,9 +19,8 @@ keymap = {
     "split vertical": Key("cmd-d"),
 
     "open": "open ",
-    "take": "take ",
     "npm": "npm ",
-    "grep": "rg ",
+    "R grep": "rg ",
     "user commands": ["cd ~/.talon/user/talon-commands", Key("enter")],
     "dotfiles": ["cd ~/dotfiles", Key("enter")],
 

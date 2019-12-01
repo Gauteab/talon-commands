@@ -1,7 +1,7 @@
 from talon.voice import Str, press
 import talon.clip as clip
 from talon import resource
-from .bundle_groups import FILETYPE_SENSITIVE_BUNDLES
+from ..bundle_groups import FILETYPE_SENSITIVE_BUNDLES
 import json
 
 # overrides are used as a last resort to override the output. Some uses:

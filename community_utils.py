@@ -6,16 +6,17 @@ from time import sleep
 from talon import clip, resource
 from talon.voice import Context, Str, press
 
-from . import vocab
+#from . import vocab
 from .bundle_groups import FILETYPE_SENSITIVE_BUNDLES, TERMINAL_BUNDLES
 
-VIM_IDENTIFIER = "(Vim)"
+VIM_IDENTIFIER = "(nvim)"
 INCLUDE_TEENS_IN_NUMERALS = False
 INCLUDE_TENS_IN_NUMERALS = False
 
 # mapping = json.load(open(os.path.join(os.path.dirname(__file__), "replace_words.json")))
-mapping = json.load(resource.open("replace_words.json"))
-mapping.update({k.lower(): v for k, v in vocab.vocab_alternate.items()})
+#mapping = json.load(resource.open("replace_words.json"))
+#mapping.update({k.lower(): v for k, v in vocab.vocab_alternate.items()})
+mapping={}
 mappings = collections.defaultdict(dict)
 for k, v in mapping.items():
     mappings[len(k.split(" "))][k] = v

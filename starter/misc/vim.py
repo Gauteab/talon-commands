@@ -5,6 +5,7 @@ context = Context("vim")
 Normal = Key("left right escape")
 context.keymap(
     {
+        "norm": Normal,
         "insert end": [Normal, "A"],
         "insert start": [Normal, "I"],
         "insert over": [Normal, "O"],
@@ -20,6 +21,8 @@ context.keymap(
         "quit hard": [Normal, ":q!", Key("enter")],
         "save and quit": [Normal, ":wq", Key("enter")],
 
+        "jump down": [Normal, Key("ctrl-d")],
+        "jump up": [Normal, Key("ctrl-u")],
 
         "forward": [Normal, "f"],
         "backward": [Normal, "F"],
@@ -50,5 +53,7 @@ context.keymap(
 
         "visual mode": [Normal, "v"],
         "visual line": [Normal, "V"],
+
+        "run it": Key("ctrl-c f9")
     }
 )

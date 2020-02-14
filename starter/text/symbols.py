@@ -4,6 +4,7 @@ context = Context("symbols")
 
 context.keymap(
     {
+        "enter G mail": "gaute.berge@gmail.com",
         "colon": ":",
         "question [mark]": "?",
         "tilde": "~",

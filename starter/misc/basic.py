@@ -1,8 +1,9 @@
 from talon.voice import Context, Str, press, Key
+from talon import ctrl
 
 import string
 
-alpha_alt = "air bat cap drum each far guest harp sit Jack Kate look made near out pit quench red sir trap urge vest whale plex yank said".split()
+alpha_alt = "air bat cap drum each far guest harp sit Jack Kate look made near out pit quench red sir trap urge verb who plex yank said".split()
 
 
 f_keys = {f"F {i}": f"f{i}" for i in range(1, 13)}
@@ -103,6 +104,14 @@ ctx.keymap(
         "paste": [Key("cmd-v")],
         "cut": [Key("cmd-x")],
         "spotlight": [Key("cmd-space")],
+        "kick": lambda _: ctrl.mouse_click(button=0, hold=100),
+        "toolbar": Key("ctrl-f2"),
+        "dredge": Key("cmd-tab"),
+        "ross": Key("right"),
+        "lease": Key("left"),
+        "dunce": Key("down"),
+        "sause": Key("up"),
+
     }
 )
 ctx.set_list("alphabet", alphabet.keys())
@@ -110,3 +119,5 @@ ctx.set_list("arrows", arrows.keys())
 ctx.set_list("digits", digits.keys())
 ctx.set_list("keys", keys.keys())
 ctx.set_list("modifiers", modifiers.keys())
+
+ctx.vocab = ["elm", "app", "parse"]

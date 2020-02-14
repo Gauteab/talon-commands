@@ -14,7 +14,8 @@ keymap = {
     "suspend": Key('ctrl-z'),
     "edit": "vim ",
     "brew install": "brew install ",
-    "make directory": "mkdir ",
+    "make dirk": "mkdir ",
+    "do move": "mv ",
     "split horizontal": Key("cmd-shift-d"),
     "split vertical": Key("cmd-d"),
 
@@ -27,9 +28,14 @@ keymap = {
     "elm repel": "elm repl",
     "elm install": "elm install ",
     "elm make": "elm make",
+    "elm-app start": "elm-app start",
+    "elm-app build": "elm-app build",
+    "create-elm-app": "create-elm-app ",
 
+    "conda": "conda ",
 }
 
 keymap.update({f"split {direction}": Key(f"cmd-alt-{direction}") for direction in "left right up down".split()})
 
 ctx.keymap(keymap)
+ctx.vocab = ["elm"]

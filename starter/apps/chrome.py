@@ -31,6 +31,8 @@ keymap = {
     "new tab": Key("cmd-t"),
     "next tab": Key("ctrl-tab"),
     "prior tab": Key("shift-ctrl-tab"),
+
+    "edit mode": Key("ctrl-shift-enter"),
 }
 
 context.keymap(keymap)

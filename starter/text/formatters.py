@@ -58,7 +58,7 @@ keymap.update(
     {
         "phrase <dgndictation> [over]": text,
         "(say | speak) <dgndictation>++ [over]": text,
-        "sentence <dgndictation> [over]": sentence_text,
+        "(sentence | sing) <dgndictation> [over]": sentence_text,
         "word <dgnwords>": word,
         "(%s)+ <dgndictation> [over]" % (" | ".join(formatters)): FormatText,
     }

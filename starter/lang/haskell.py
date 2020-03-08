@@ -9,7 +9,6 @@ ctx.keymap(
         "case of": ["case  of"] + [Key("left")]*3,
         "new type": ["type  =" ] + [Key("left")]*2,
         "data type": ["data  =" ] + [Key("left")]*2,
-        "as": " as ",
         "type alias": ["type alias  ="]+ [Key("left")]*2,
         "lamda": ["(\\x -> )"]+ [Key("left")],
         "pizza right": " $ ",

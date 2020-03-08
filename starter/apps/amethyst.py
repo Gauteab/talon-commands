@@ -15,15 +15,13 @@ def amethyst_running():
 ctx = Context("amethyst", func=lambda app, win: amethyst_running())
 
 keymap = {
-    # "window next screen": Key("ctrl-alt-shift-l"),
-    # "window (previous|prev) screen": Key("ctrl-alt-shift-h"),
+    "window relaunch": Key("ctrl-shift-alt-z"),
     "window next": Key("alt-shift-j"),
     "window previous": Key("alt-shift-k"),
-    # "window move desk": Key("ctrl-alt-shift-h"),
     "window full": Key("alt-shift-d"),
     "window tall": Key("alt-shift-a"),
     "window middle": Key("alt-shift-`"),
-    "window move main": Key("alt-shift-enter"),
+    "window main": Key("alt-shift-enter"),
     "window grow": Key("alt-shift-l"),
     "window shrink": Key("alt-shift-h"),
     "window reevaluate": Key("alt-shift-z"),

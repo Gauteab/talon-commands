@@ -1,4 +1,4 @@
-from talon.voice import Context, ContextGroup
+from talon.voice import Context, ContextGroup, Key
 from talon.engine import engine
 from talon_plugins import speech
 
@@ -7,6 +7,8 @@ sleepy = Context("sleepy", group=sleep_group)
 
 sleepy.keymap(
     {
+        "next slide": [Key("right")],
+        "last slide": [Key("left")],
         "talon sleep": lambda m: speech.set_enabled(False),
         "talon wake": lambda m: speech.set_enabled(True),
         "dragon mode": [

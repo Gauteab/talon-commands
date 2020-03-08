@@ -105,6 +105,7 @@ ctx.keymap(
         "cut": [Key("cmd-x")],
         "spotlight": [Key("cmd-space")],
         "kick": lambda _: ctrl.mouse_click(button=0, hold=100),
+        "next instance": Key("alt-cmd-minus"),
         "toolbar": Key("ctrl-f2"),
         "dredge": Key("cmd-tab"),
         "ross": Key("right"),

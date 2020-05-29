@@ -23,7 +23,7 @@ EDITOR_BUNDLES = (
 BROWSER_BUNDLES = ("org.mozilla.firefox", "com.google.Chrome")
 
 FILETYPE_SENSITIVE_BUNDLES = (
-    # *BROWSER_BUNDLES,
+    *BROWSER_BUNDLES,
     *EDITOR_BUNDLES,
     *TERMINAL_BUNDLES,
 )

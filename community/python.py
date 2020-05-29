@@ -121,6 +121,7 @@ ctx.keymap(
 ctx.set_list("exception", exceptions.keys())
 
 PREFIX = "(py | python)"
+# ctx = Context("python")
 ctx = Context("python", func=is_filetype(FILETYPES))
 ctx.keymap(
     {
@@ -161,6 +162,7 @@ ctx.keymap(
         f"{PREFIX} from [<dgndictation>] [over]": ["from ", snake_text],
         f"{PREFIX} from [<dgndictation>] import": ["from ", snake_text, " import "],
         f"{PREFIX} length": ["len()", Key("left")],
+        f"{PREFIX} class": "class ",
         f"define [<dgndictation>] [over]": ["def ", snake_text, "():", Key("left left")],
         "return [<dgndictation>] [over]": ["return ", snake_text],
         "set trace": "import ipdb; ipdb.set_trace()",

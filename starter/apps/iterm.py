@@ -1,9 +1,10 @@
 from talon.voice import Key, Context
+from ... community_utils import is_not_vim
+from ..utils import press
 
-ctx = Context("iterm", bundle="com.googlecode.iterm2")
-
-keymap = {
-    "preferences": Key("cmd-,"),
+cli = Context("commandline", bundle="com.googlecode.iterm2", func=is_not_vim)
+cli.keymap({
+    "PB copy": "pbcopy",
     "exit session": [Key("ctrl-c"), "exit\n"],
     "clear session": [Key("ctrl-c"), "clear\n"],
     "clean": Key("cmd-k"),
@@ -11,31 +12,47 @@ keymap = {
     "CD": "cd ",
     "CD up": ["cd ..", Key("enter")],
     "foreground": ['fg', Key('enter')],
-    "suspend": Key('ctrl-z'),
     "edit": "vim ",
+    "editor": ["vim", Key("enter")],
+    "edit file": ["vim", Key("enter space g")],
     "brew install": "brew install ",
     "make dirk": "mkdir ",
+    "remove dirk": "rm -rf ",
     "do move": "mv ",
-    "split horizontal": Key("cmd-shift-d"),
-    "split vertical": Key("cmd-d"),
-
     "open": "open ",
+    "open charm": ["charm .", Key("enter")],
     "npm": "npm ",
     "R grep": "rg ",
     "user commands": ["cd ~/.talon/user/talon-commands", Key("enter")],
-    "dotfiles": ["cd ~/dotfiles", Key("enter")],
 
-    "elm repel": "elm repl",
-    "elm install": "elm install ",
-    "elm make": "elm make",
-    "elm-app start": "elm-app start",
-    "elm-app build": "elm-app build",
-    "create-elm-app": "create-elm-app ",
+    # Elm
+    "helm repel": "elm repl",
+    "helm install": "elm install ",
+    "helm in it": "elm init ",
+    "helm make": "elm make",
+    "helm-app start": "elm-app start",
+    "helm-app build": "elm-app build",
+    "create helm app": "create-elm-app ",
+
+    "list files": Key("l enter"),
+    "find file": Key("ctrl-g"),
+    "find (his | history)": Key("ctrl-r"),
 
     "conda": "conda ",
-}
+})
 
-keymap.update({f"split {direction}": Key(f"cmd-alt-{direction}") for direction in "left right up down".split()})
 
-ctx.keymap(keymap)
-ctx.vocab = ["elm"]
+ctx = Context("iterm", bundle="com.googlecode.iterm2")
+ctx.keymap({
+    "new tab": Key("cmd-t"),
+    "close tab": Key("cmd-w"),
+    "next tab": Key("cmd-right"),
+    "last tab": Key("cmd-left"),
+    "preferences": Key("cmd-,"),
+    "suspend": Key('ctrl-z'),
+    "split horizontal": Key("cmd-shift-d"),
+    "split vertical": Key("cmd-d"),
+    "split {iterm.direction}": lambda m: press(f'cmd-alt-{m[1]}'),
+})
+
+ctx.set_list("direction", "left right up down".split())

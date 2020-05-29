@@ -32,7 +32,7 @@ keymap = {
     "next tab": Key("ctrl-tab"),
     "prior tab": Key("shift-ctrl-tab"),
 
-    "edit mode": Key("ctrl-shift-enter"),
+    "edit mode": Key("ctrl-shift-e"),
 }
 
 context.keymap(keymap)

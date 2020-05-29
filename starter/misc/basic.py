@@ -3,7 +3,7 @@ from talon import ctrl
 
 import string
 
-alpha_alt = "air bat cap drum each far guest harp sit Jack Kate look made near out pit quench red sir trap urge verb who plex yank said".split()
+alpha_alt = "air bat cap dark each far guest harp sit Jack Kate look made near out pit quench red sir trap urge verb who plex yank said".split()
 
 
 f_keys = {f"F {i}": f"f{i}" for i in range(1, 13)}
@@ -105,13 +105,19 @@ ctx.keymap(
         "cut": [Key("cmd-x")],
         "spotlight": [Key("cmd-space")],
         "kick": lambda _: ctrl.mouse_click(button=0, hold=100),
-        "next instance": Key("alt-cmd-minus"),
+        "next window": Key("alt-cmd-minus"),
         "toolbar": Key("ctrl-f2"),
         "dredge": Key("cmd-tab"),
         "ross": Key("right"),
         "lease": Key("left"),
         "dunce": Key("down"),
         "sause": Key("up"),
+
+        "first name": "Gaute",
+        "last name": "Berge",
+        "my name": "Gaute Berge",
+        "my e-mail": "gaute.berge@gmail.com",
+        "at university": "@uio.no",
 
     }
 )

@@ -9,7 +9,7 @@ from talon.voice import Context, Str, press
 #from . import vocab
 from .bundle_groups import FILETYPE_SENSITIVE_BUNDLES, TERMINAL_BUNDLES
 
-VIM_IDENTIFIER = "(nvim)"
+VIM_IDENTIFIER = "nvim"
 INCLUDE_TEENS_IN_NUMERALS = False
 INCLUDE_TENS_IN_NUMERALS = False
 
@@ -189,7 +189,7 @@ numeral_map["and"] = None  # drop me
 numeral_list = sorted(numeral_map.keys())
 
 ctx = Context("n")
-ctx.set_list("all", numeral_list)
+# ctx.set_list("all", numeral_list)
 numerals = " {n.all}+"
 optional_numerals = " {n.all}*"
 

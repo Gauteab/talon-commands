@@ -2,7 +2,7 @@ from talon.voice import Word, Context, Key, Str, press
 from talon import app, clip, ui
 from talon_init import TALON_HOME, TALON_PLUGINS, TALON_USER
 import string
-from ..utils import surround, parse_words, parse_word, sentence_text, text, word
+from ..utils import surround, parse_words, parse_word, sentence_text, text, word, insert
 
 ctx = Context("formatters")
 
@@ -53,6 +53,10 @@ def FormatText(m):
         sep = ""
     Str(sep.join(words))(None)
 
+def state(m):
+    text(m)
+    insert(" ")
+
 keymap = {}
 keymap.update(
     {
@@ -61,6 +65,7 @@ keymap.update(
         "(sentence | sing) <dgndictation> [over]": sentence_text,
         "word <dgnwords>": word,
         "(%s)+ <dgndictation> [over]" % (" | ".join(formatters)): FormatText,
+        "state <dgndictation>": state,
     }
 )
 

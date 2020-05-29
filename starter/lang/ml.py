@@ -5,6 +5,8 @@ from ..utils import is_filetype
 ctx = Context("ML", func=is_filetype(("hs", "elm")))
 ctx.keymap(
     {
+        "value true": " True ",
+        "value false": " False ",
         "import": "import ",
         "case of": ["case  of"] + [Key("left")]*3,
         "if else": ["if  then 0 else 1"] + [Key("left")]*14,

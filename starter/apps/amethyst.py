@@ -16,8 +16,8 @@ ctx = Context("amethyst", func=lambda app, win: amethyst_running())
 
 keymap = {
     "window relaunch": Key("ctrl-shift-alt-z"),
-    "window next": Key("alt-shift-j"),
-    "window previous": Key("alt-shift-k"),
+    # "window next": Key("alt-shift-j"),
+    # "window previous": Key("alt-shift-k"),
     "window full": Key("alt-shift-d"),
     "window tall": Key("alt-shift-a"),
     "window middle": Key("alt-shift-`"),

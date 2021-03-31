@@ -1,9 +1,9 @@
 import re
-
 from talon.voice import Context, Key, press
 
 from ..community_utils import is_filetype, snake_text, insert
 from .. import community_utils
+from ..enabler import ToggleContext
 
 
 FILETYPES = (".py", "ipynb")
@@ -122,7 +122,7 @@ ctx.set_list("exception", exceptions.keys())
 
 PREFIX = "(py | python)"
 # ctx = Context("python")
-ctx = Context("python", func=is_filetype(FILETYPES))
+ctx = ToggleContext("python", func=is_filetype(FILETYPES))
 ctx.keymap(
     {
         "self assign <dgndictation> [over]": [
@@ -163,13 +163,14 @@ ctx.keymap(
         f"{PREFIX} from [<dgndictation>] import": ["from ", snake_text, " import "],
         f"{PREFIX} length": ["len()", Key("left")],
         f"{PREFIX} class": "class ",
-        f"define [<dgndictation>] [over]": ["def ", snake_text, "():", Key("left left")],
+        f"{PREFIX} assert": "assert ",
+        "call {lsp.Function}": [lambda m: insert(f"{m[1]}()"), Key("left")],
+        # "{names.names} {names.names}": lambda m: insert(f"{m[0]}({m[1]})"),
+        # "call <dgndictation> [over]": [snake_text, "()", Key("left")],
+        f"define <dgndictation> [over]": ["def ", snake_text, "():", Key("left left")],
+        f"define": ["def ():", Key("left " * 3)],
         "return [<dgndictation>] [over]": ["return ", snake_text],
-        "set trace": "import ipdb; ipdb.set_trace()",
         "while loop": ["while :", Key("left")],
         "for loop": ["for :", Key("left")],
     }
 )
-# TODO: defined class
-# TODO: python-ast
-# TODO: don't overload tab for quinn snippet navigation

@@ -2,9 +2,19 @@ from talon.voice import Context, Key
 import time
 from ... bundle_groups import EDITOR_BUNDLES
 from .. utils import is_in_bundles
+from ...community_utils import is_vim
+
+Normal = Key("ctrl-c")
+
+context = Context("nvim", func=is_vim)
+context.keymap({
+    "next error": [Normal, "]g"],
+    "last error": [Normal, "[g"],
+    "go to": [Normal, Key("ctrl-enter")],
+    "source config": [Normal, ":source $MYVIMRC", Key("enter")]
+})
 
 context = Context("vim")
-Normal = Key("ctrl-c")
 context.keymap(
     {
         "norm": Normal,

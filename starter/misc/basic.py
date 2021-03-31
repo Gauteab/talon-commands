@@ -117,6 +117,7 @@ ctx.keymap(
         "last name": "Berge",
         "my name": "Gaute Berge",
         "my e-mail": "gaute.berge@gmail.com",
+        "work mail": "gaute.berge@bekk.no",
         "at university": "@uio.no",
 
     }

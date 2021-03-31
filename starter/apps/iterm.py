@@ -24,6 +24,7 @@ cli.keymap({
     "npm": "npm ",
     "R grep": "rg ",
     "user commands": ["cd ~/.talon/user/talon-commands", Key("enter")],
+    "dash dash": " --",
 
     # Elm
     "helm repel": "elm repl",

@@ -147,6 +147,11 @@ def string_capture(m):
 def text(m):
     insert(string_capture(m))
 
+def camel_text(m):
+    p = parse_words(m)
+    p = ( word if i == 0 else word.capitalize() for i, word in enumerate(p) )
+    insert(join_words(p, sep="")) 
+
 
 def snake_text(m):
     insert(join_words(parse_words(m), sep="_").lower())

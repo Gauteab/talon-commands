@@ -2,7 +2,7 @@ from talon.voice import Context, Key, Str, press
 from ..utils import is_filetype
 
 targets = ["text", "itemize", "tabular", "center", "minted"]
-simple_commands = ["chapter", "part", "section", "subsection", "paragraph", "subparagraph", "item"]
+simple_commands = ["chapter", "part", "section", "subsection", "paragraph", "subparagraph", "item", "label"]
 text_commands = {"bold": "textbf", "italic": "textit"}
 
 def begin(m):

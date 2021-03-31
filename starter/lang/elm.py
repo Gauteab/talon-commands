@@ -1,38 +1,53 @@
 from functools import reduce
 from talon.voice import Context, Key, Str
 from ..utils import is_filetype, insert, text, join_words
+from ...community_utils import camel_text
+from ...enabler import is_enabled, ToggleContext
+from talon import fs
 
 # # Modules:
 # Array, Basics, Bitwise, Char, Debug, Dict, List, Maybe, Platform, Platform.Cmd, Platform.Sub, Process, Result, Set, String, Task, Tuple
 # # Types:
 # Array, Bool, Float, Int, Never, Order, Char, Dict, Maybe, ProcessId, Program, Router, Task, Cmd, Sub, Id, Result, Set, String, Task
-types = {s:s for s in ["Tuple", "List", "Maybe", "Result", "Parser", "String", "Int", "Tree", "Zipper", "Bool"]}
+types = {s: s for s in ["Tuple", "List", "Maybe", "Result",
+                        "Parser", "String", "Int", "Tree", "Zipper", "Bool", "Tree"]}
 types.update({"hint": "Int"})
 
 functions = "model column row".split()
 
-ctx = Context("elm", func=is_filetype(("elm",)))
+# ctx = ToggleContext("elm", func=is_enabled("elm"))
+ctx  = ToggleContext("elm", func=is_filetype(("elm",)))
+
 ctx.set_list("types", types)
 ctx.set_list("functions", functions)
 ctx.keymap(
     {
-
+        "define <dgndictation> [over]": [camel_text, " = "],
         "{elm.types} to ": lambda m: insert(types[m[0]] + " -> "),
+        "{lsp.Enum} to ": lambda m: insert(m[0] + " -> "),
         "{elm.types} to {elm.types}": lambda m: insert(types[m[0]] + " -> " + types[m[2]]),
         "{elm.types} of": lambda m: insert(types[m[0]] + " "),
+        "{elm.types} dot": lambda m: insert(types[m[0]] + "."),
+        "{names.modules} dot": lambda m: insert(m[0] + "."),
+        "call {lsp.Function}": lambda m: insert(m[1] + " "),
+        "{lsp.Function}": lambda m: insert(m[0] + " "),
+
+
 
         "import everything": ["import  exposing (..)"] + [Key("left")]*14,
         "case of": ["case  of"] + [Key("left")]*3,
-        "new type": ["type  =" ] + [Key("left")]*2,
-        "type alias": ["type alias  ="]+ [Key("left")]*2,
+        "new type": ["type  ="] + [Key("left")]*2,
+        "type alias": ["type alias  ="] + [Key("left")]*2,
         "pizza right": " |> ",
         "pizza left": " <| ",
+        "wildcard": " _ ",
 
-        "debug to do":[ "Debug.todo \"\"" ,Key("left")],
+        "debug to do": ["Debug.todo \"\"", Key("left")],
         "debug to string": "Debug.toString ",
         "debug log": "Debug.log \"\" ",
 
         "name {elm.functions}": lambda m: insert(m[1] + " "),
+        "call {names.names}": lambda m: insert(m[1] + " "),
         "default branch": "_ -> Debug.todo \"\"",
         "return default": "(model, Cmd.none)",
 
@@ -339,4 +354,3 @@ ctx.keymap(
 
     }
 )
-
